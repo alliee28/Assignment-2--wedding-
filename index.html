@@ -10,13 +10,27 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet"><script src="script.js"></script>
+<script src="test.js" defer></script>
+<script src="jquery.js" defer></script>
+<script src="graph.js" defer></script>
+<script src="map.js" defer></script>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<!-- Leaflet -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+crossorigin=""></script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script src="https://kit.fontawesome.com/61802d2a57.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <div class="container">
   <header>
     <div class="header">
-      <h1 class="title"> Allie's Animals</h1>
+      <h1 id="title"> Allie's Animals</h1>
     </div>
   </header>
 
@@ -45,8 +59,23 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
+  </div><br>
+  <div>
+    <center><button class="button jsModalButton">Fun Facts Modal</button></center>
   </div>
-
+  <!-- Modal -->
+  <div class="modal-overlay jsModalOverlay">
+    <div class="modal">
+      <div class="modal__content">
+        <h2>Fun Facts</h2>
+        <p>Flash can shake your hand and give you a hug. Snap can sit like a person for a treat.</p>
+        <button class="modal__close-button jsModalClose">
+          <i class="fa-solid fa-circle-xmark"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- End of Modal -->
   <section>
     <article class="left_article">
       <h3>About my animal family</h3>
@@ -58,6 +87,9 @@
         a sister. We need to wait until we get into a house with a fenced in backyard before we get another dog though. Hopefully we can move and get
         him a brother/sister soon! My favorite breed of dog is a King Charles Caveliere Spaniel. So I would love to get one of those dogs!
       </p>
+      <p class="newPContent"></p>
+                <p class="jqNewContent">Fact: Another name for Doja's fur pattern is "Magpie"</p>
+                <button class="jqButton">Another Fact</button>
     </article>
     <aside class="right_article"><img src="assets/img_2914.jpg" alt="" width="400" height="200" class="placeholder"/> </aside>
   </section>
@@ -68,6 +100,13 @@
       <center><i class="fa-solid fa-cat"></i></center>
       <p>Snap is a 2 year old tabby cat. He is the first cat I've ever had. He loves to be pet underneath his chin and to play with my hair. He is sweetest and quirkiest kitty I've ever met.</p>
     </div>
+    <script>
+      var tag = document.createElement("p");
+      var text = document.createTextNode("Snap is the oldest animal.");
+      tag.appendChild(text);
+      var element = document.querySelector(".columns");
+      element.appendChild(tag);
+   </script>
     <div class="columns">
       <p class="thumbnail_align"> <img src="assets/IMG_1843.jpg" alt="Flash" class="thumbnail"/> </p>
       <h4>Flash</h4>
@@ -81,6 +120,68 @@
       <p>Doja is a 5 month old tuxito kitty. She loves aggressively rubbing against you so you will pet her. She is very vocal and will let you know when she wants something. She's the only other girl of the family.</p>
     </div>
   </div>
+  <div id="addClass" class>I've been replaced!</div>
+  <br>
+    <p id="toys"></p>
+  <button onClick="orange()">
+    Snap's Color
+  </button>
+  <button onClick="tan()">
+    Flash's Color
+  </button>
+  <button onClick="black()">
+    Doja's Color
+  </button><br>
+  <br><div id="orangeDiv">
+  </div>
+  <script>
+    var div = document.getElementById("orangeDiv");
+
+      function orange() {
+         div.setAttribute("id", "orangeDiv");
+      }
+      function black() {
+         div.setAttribute("id", "blackDiv");
+      }
+      function tan() {
+         div.setAttribute("id", "tanDiv");
+      }
+  </script>
+  <br><br>
+  <center><div class="box b" data-aos="zoom-in"><h2>Animals Ages</h2>
+  </div></center>
+  <div id="chart">
+  </div>
+  <div class="container-md mapSection">
+    <h2 class="mapTitle">Flash's favorite park!</h2>
+    <div id="map"></div>
+  </div>
+  <div class="aos-all">
+    <div data-id="1" class="aos-item" data-aos="fade-up" data-aos-once="true"></div>
+    <div data-id="2" class="aos-item" data-aos="fade-down"></div>
+    <div data-id="3" class="aos-item" data-aos="zoom-out-down"></div>
+    <div data-id="4" class="aos-item" data-aos="flip-down"></div>
+    <div data-id="5" class="aos-item" data-aos="flip-up" data-aos-once="true"></div>
+    <div data-id="6" class="aos-item" data-aos="fade-down"></div>
+    <div data-id="7" class="aos-item" data-aos="fade-in"></div>
+    <div data-id="8" class="aos-item" data-aos="fade-down"></div>
+    <div data-id="9" class="aos-item" data-aos="fade-in" data-aos-once="true"></div>
+    <div data-id="10" class="aos-item" data-aos="fade-down"></div>
+    <div data-id="11" class="aos-item" data-aos="fade-up" data-aos-once="true"></div>
+    <div data-id="12" class="aos-item" data-aos="fade-down"></div>
+    <div data-id="13" class="aos-item" data-aos="fade-in" data-aos-once="true"></div>
+    <div data-id="14" class="aos-item" data-aos="fade-up"></div>
+    <div data-id="15" class="aos-item" data-aos="fade-in"></div>
+    <div data-id="16" class="aos-item" data-aos="fade-up"></div>
+    <div data-id="17" class="aos-item" data-aos="fade-down" data-aos-once="true"></div>
+    <div data-id="18" class="aos-item" data-aos="fade-up"></div>
+    <div data-id="19" class="aos-item" data-aos="zoom-out"></div>
+    <div data-id="20" class="aos-item" data-aos="fade-up"></div>
+    <div data-id="21" class="aos-item" data-aos="zoom-out" data-aos-once="true"></div>
+  </div>
+  <script>
+    AOS.init();
+  </script>
   <footer class="secondary_header footer">
     <div class="copyright"><strong>Allie Packard</strong></div>
   </footer>
